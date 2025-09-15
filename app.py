@@ -1,11 +1,12 @@
 from flask import Flask, jsonify
+from flask_cors import CORS  # <-- 1. IMPORT THIS
 import requests
 from bs4 import BeautifulSoup
 import re
 
 # Initialize the Flask application
 app = Flask(__name__)
-
+CORS(app) 
 # Define the API endpoint
 @app.route('/prices/<state>/<commodity>', methods=['GET'])
 def get_prices(state, commodity):
